@@ -23,27 +23,42 @@ public class MoveHandler : MonoBehaviour
     [Tooltip("Демпфирование продольного скольжения при отпущенных клавишах")]
     public float longitudinalFriction = 2f;
 
-    private Rigidbody _rb;
+    [Header("Двигатель")]
+    [Tooltip("Холостые обороты (RPM)")]
+    public float idleRPM = 700f;
+    [Tooltip("Максимальные обороты (RPM)")]
+    public float maxRPM = 3200f;
+    [Tooltip("Скорость реакции оборотов (чем больше, тем резче)")]
+    public float rpmResponse = 6f;
 
+    [SerializeField] 
+    
+    
     // Текущее «положение газа» каждой гусеницы (-1..+1)
     private float _leftPower;
     private float _rightPower;
+
+    // Текущие обороты двигателя (для UI/звука)
+    public float engineRPM { get; private set; }
+
+    private Rigidbody _rb;
 
     void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _rb.interpolation = RigidbodyInterpolation.Interpolate;
-        _rb.constraints = RigidbodyConstraints.FreezeRotationZ; // для наземной техники (убери если нужно 3D-перевороты)
+        _rb.constraints = RigidbodyConstraints.FreezeRotationZ; // для наземной техники (убери если нужны 3D-перевороты)
+        engineRPM = idleRPM;
     }
 
     void FixedUpdate()
     {
         // ----- Ввод -----
-        // Левая гусеница: Q = назад, I = вперёд
+        // Левая гусеница: Q = вперёд, A = назад
         float leftTarget = (Input.GetKey(KeyCode.Q) ? 1f : 0f) + (Input.GetKey(KeyCode.A) ? -1f : 0f);
         leftTarget = Mathf.Clamp(leftTarget, -1f, 1f);
 
-        // Правая гусеница: D = назад, I = вперёд
+        // Правая гусеница: E = вперёд, D = назад
         float rightTarget = (Input.GetKey(KeyCode.E) ? 1f : 0f) + (Input.GetKey(KeyCode.D) ? -1f : 0f);
         rightTarget = Mathf.Clamp(rightTarget, -1f, 1f);
 
@@ -52,44 +67,50 @@ public class MoveHandler : MonoBehaviour
         _rightPower = MoveWithBrake(_rightPower, rightTarget, accel, brakeAccel);
 
         // ----- Перевод в скорость корпуса (модель дифференциала) -----
-        // Линейная скорость вперёд
         float vForward = ((_leftPower + _rightPower) * 0.5f) * maxSpeed;
 
-        // Угловая скорость вокруг вертикальной оси:
-        // при чистом «на месте» (лев+1, прав-1) достигнем maxTurnRateOnSpot
-        // в общем случае масштабирем по разности гусениц
+        // Разворот: разность гусениц -> угловая скорость
         float turnFactor = Mathf.Clamp((_rightPower - _leftPower) * 0.5f, -1f, 1f);
         float omega = turnFactor * maxTurnRateOnSpot;
-
-        // Спец-случай: «поворот вокруг стоящей гусеницы»
-        // Если одна почти 0, другая > 0: вращаемся радиусом ≈ trackWidth/2 (естественно получается из разности)
-        // Это уже покрыто формулой выше. Чтобы стоящая «тормозила», ниже добавим фрикцию.
 
         // ----- Применение к Rigidbody -----
         Vector3 forward = transform.forward;
         Vector3 desiredVel = forward * vForward;
 
-        // Тушим боковой снос (псевдо-сцепление гусениц)
-        Vector3 vel = _rb.linearVelocity;                     // предпочтительно linearVelocity
+        // Тушим боковой снос (имитация сцепления гусениц)
+        Vector3 vel = _rb.linearVelocity;
         Vector3 lateral = Vector3.ProjectOnPlane(vel, forward);
         Vector3 correctedVel = vel - lateral * Mathf.Clamp01(lateralFriction * Time.fixedDeltaTime);
 
-        // Тянем продольную составляющую к desiredVel (мягкое торможение/разгон)
-        Vector3 currentForwardVel = Vector3.Project( correctedVel, forward );
+        // Тянем продольную составляющую к desiredVel
+        Vector3 currentForwardVel = Vector3.Project(correctedVel, forward);
         Vector3 newForwardVel = Vector3.MoveTowards(
             currentForwardVel,
             desiredVel,
             longitudinalFriction * Time.fixedDeltaTime * maxSpeed
         );
 
-        // Собираем итоговую скорость
         Vector3 newVel = newForwardVel + (correctedVel - currentForwardVel);
         _rb.linearVelocity = newVel;
 
-        // Устанавливаем угловую скорость (в мировой системе)
+        // Угловая скорость
         Vector3 angVel = _rb.angularVelocity;
         angVel = new Vector3(0f, omega, 0f);
         _rb.angularVelocity = angVel;
+
+        // ----- Двигатель (RPM) -----
+        // «Газ» как среднее по гусеницам (по модулю)
+        float throttle = Mathf.Abs((_leftPower + _rightPower) * 0.5f);
+
+        // Добавка RPM при развороте на месте (когда гусеницы встречные)
+        // |turnMix| = 0..1, где 1 — чистое вращение на месте
+        float turnMix = Mathf.Clamp01(Mathf.Abs(_rightPower - _leftPower) * 0.5f);
+
+        // Целевые обороты: от холостых к максимуму, плюс небольшой бонус при развороте
+        float targetRPM = Mathf.Lerp(idleRPM, maxRPM, Mathf.Clamp01(throttle + 0.35f * turnMix));
+
+        // Плавная реакция двигателя
+        engineRPM = Mathf.Lerp(engineRPM, targetRPM, rpmResponse * Time.fixedDeltaTime);
     }
 
     private static float MoveWithBrake(float current, float target, float accel, float brakeAccel)
