@@ -31,7 +31,7 @@ namespace CodeBase.System.Core.Consts
         }
         
         //Audio
-        public const string Effectvolume = "EffectVolume";
+        public const string Effectvolume = "EffectsVolume";
         public const string Musicvolume = "MusicVolume";
         public const string TimeEffect = "TimeEffect";
 

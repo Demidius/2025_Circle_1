@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using Code.GameEntyties.Player;
 using Code.UIModule.Controllers;
 using CodeBase._2UIModuleF.UIControllers;
 using CodeBase.OnWork;
@@ -27,6 +28,11 @@ namespace CodeBase._1InstallBindings
             Container.BindInterfacesAndSelfTo<AudioTracksBase>().FromComponentsInHierarchy().AsSingle();
             
             
+            
+            //Player
+            Container.BindInterfacesAndSelfTo<TanksEngine>().FromComponentsInHierarchy().AsSingle();
+            Container.BindInterfacesAndSelfTo<TrackVelocity>().FromComponentsInHierarchy().AsSingle();
+
 
 
 
