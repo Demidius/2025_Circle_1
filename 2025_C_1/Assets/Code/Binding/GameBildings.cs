@@ -5,37 +5,38 @@ using CodeBase._2UIModuleF.UIControllers;
 using CodeBase.OnWork;
 using CodeBase.System.GameSystems.AudioModule.BaseLogic;
 using CodeBase.System.GameSystems.Input;
+using CodeBase.System.GameSystems.Pools;
+using CodeBase.System.GameSystems.Pools.Factory;
 using CodeBase.System.Services.Utilities.Coroutines.CoroutinRuner;
+using UnityEngine;
 using Zenject;
 namespace CodeBase._1InstallBindings
 {
-    public class GameBildings : MonoInstaller
-    {
+    public class GameBildings : MonoInstaller {
+        
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<GogScript>().FromComponentsInHierarchy().AsSingle();
-            
+
             Container.BindInterfacesAndSelfTo<CoroutineRunner>().FromComponentsInHierarchy().AsSingle();
-            
+
             Container.BindInterfacesAndSelfTo<WindowProvider>().AsSingle();
-            
+
             Container.BindInterfacesAndSelfTo<InputModuleController>().AsSingle();
-            
+
             Container.BindInterfacesAndSelfTo<UIModuleContainer>().FromComponentsInHierarchy().AsSingle();
-            
+
             Container.BindInterfacesAndSelfTo<AudioManager>().FromComponentsInHierarchy().AsSingle();
-           
+
             Container.BindInterfacesAndSelfTo<AudioTracksBase>().FromComponentsInHierarchy().AsSingle();
-            
-            
-            
+
+            Container.BindInterfacesAndSelfTo<FactoryComponent>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PoolController>().FromComponentsInHierarchy().AsSingle();
+
+
             //Player
             Container.BindInterfacesAndSelfTo<TanksEngine>().FromComponentsInHierarchy().AsSingle();
-            Container.BindInterfacesAndSelfTo<TrackVelocity>().FromComponentsInHierarchy().AsSingle();
-
-
-
-
+           
         }
     }
 }
