@@ -1,5 +1,5 @@
+using Code.System.Input;
 using CodeBase.System.Core.Consts;
-using CodeBase.System.GameSystems.Input;
 using CodeBase.System.GameSystems.StateMachine.Core;
 using CodeBase.System.GameSystems.StateMachine.States;
 using UnityEngine;
@@ -62,7 +62,7 @@ namespace CodeBase._2UIModuleF.Mouse
             if (_cursorRect == null)
                 Debug.LogError("Cursor GameObject must have a RectTransform component!");
 
-            _inputCase.OnSystemMousePoint += MosePos;
+            // _inputCase.OnSystemMousePoint += MosePos;
             _gameStateMachine.OnStateChanged += TypeChange;
 
             ApplyCursorScale(_currentScale);
@@ -70,7 +70,7 @@ namespace CodeBase._2UIModuleF.Mouse
 
         private void OnDestroy()
         {
-            _inputCase.OnSystemMousePoint -= MosePos;
+            // _inputCase.OnSystemMousePoint -= MosePos;
             _gameStateMachine.OnStateChanged -= TypeChange;
         }
 

@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 49713313}
   - component: {fileID: 49713312}
   - component: {fileID: 49713311}
-  - component: {fileID: 49713314}
   m_Layer: 3
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -228,28 +227,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 49713309}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &49713314
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 49713309}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &117444564
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +256,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 100000
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -502,7 +479,6 @@ GameObject:
   - component: {fileID: 248263735}
   - component: {fileID: 248263734}
   - component: {fileID: 248263733}
-  - component: {fileID: 248263736}
   m_Layer: 3
   m_Name: Sphere (5)
   m_TagString: Untagged
@@ -599,28 +575,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248263731}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &248263736
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248263731}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &341940718
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +587,6 @@ GameObject:
   - component: {fileID: 341940722}
   - component: {fileID: 341940721}
   - component: {fileID: 341940720}
-  - component: {fileID: 341940723}
   m_Layer: 3
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -730,28 +683,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341940718}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &341940723
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 341940718}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &401397507
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,7 +695,6 @@ GameObject:
   - component: {fileID: 401397511}
   - component: {fileID: 401397510}
   - component: {fileID: 401397509}
-  - component: {fileID: 401397512}
   m_Layer: 3
   m_Name: Sphere (7)
   m_TagString: Untagged
@@ -861,28 +791,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401397507}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &401397512
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 401397507}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.50000095
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &443431779
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,7 +896,6 @@ GameObject:
   - component: {fileID: 679524182}
   - component: {fileID: 679524181}
   - component: {fileID: 679524180}
-  - component: {fileID: 679524183}
   m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
@@ -1085,28 +992,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679524178}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &679524183
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 679524178}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &680512804
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,7 +1004,6 @@ GameObject:
   - component: {fileID: 680512808}
   - component: {fileID: 680512807}
   - component: {fileID: 680512806}
-  - component: {fileID: 680512809}
   m_Layer: 3
   m_Name: Sphere (11)
   m_TagString: Untagged
@@ -1216,28 +1100,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680512804}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &680512809
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680512804}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.50000006
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &822358918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,7 +1112,6 @@ GameObject:
   - component: {fileID: 822358922}
   - component: {fileID: 822358921}
   - component: {fileID: 822358920}
-  - component: {fileID: 822358923}
   m_Layer: 3
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -1347,28 +1208,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822358918}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &822358923
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822358918}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &842109700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,7 +1313,6 @@ GameObject:
   - component: {fileID: 944685233}
   - component: {fileID: 944685232}
   - component: {fileID: 944685231}
-  - component: {fileID: 944685234}
   m_Layer: 3
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -1571,28 +1409,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944685229}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &944685234
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944685229}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &948451783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,7 +1421,6 @@ GameObject:
   - component: {fileID: 948451787}
   - component: {fileID: 948451786}
   - component: {fileID: 948451785}
-  - component: {fileID: 948451788}
   m_Layer: 3
   m_Name: Sphere (2)
   m_TagString: Untagged
@@ -1702,28 +1517,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948451783}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &948451788
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948451783}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &982787698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1815,7 +1608,6 @@ GameObject:
   - component: {fileID: 1079360008}
   - component: {fileID: 1079360007}
   - component: {fileID: 1079360006}
-  - component: {fileID: 1079360009}
   m_Layer: 3
   m_Name: Cube (6)
   m_TagString: Untagged
@@ -1912,28 +1704,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079360004}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &1079360009
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079360004}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5000005
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &1086805883
 GameObject:
   m_ObjectHideFlags: 0
@@ -2039,7 +1809,6 @@ GameObject:
   - component: {fileID: 1086969587}
   - component: {fileID: 1086969586}
   - component: {fileID: 1086969585}
-  - component: {fileID: 1086969588}
   m_Layer: 3
   m_Name: Sphere (4)
   m_TagString: Untagged
@@ -2136,28 +1905,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086969583}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &1086969588
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086969583}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &1096602849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2170,7 +1917,6 @@ GameObject:
   - component: {fileID: 1096602853}
   - component: {fileID: 1096602852}
   - component: {fileID: 1096602851}
-  - component: {fileID: 1096602854}
   m_Layer: 3
   m_Name: Sphere (8)
   m_TagString: Untagged
@@ -2267,28 +2013,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096602849}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &1096602854
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096602849}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.50000095
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &1164433323
 GameObject:
   m_ObjectHideFlags: 0
@@ -2301,7 +2025,6 @@ GameObject:
   - component: {fileID: 1164433327}
   - component: {fileID: 1164433326}
   - component: {fileID: 1164433325}
-  - component: {fileID: 1164433328}
   m_Layer: 3
   m_Name: Sphere (10)
   m_TagString: Untagged
@@ -2398,28 +2121,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164433323}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &1164433328
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1164433323}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.50000095
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &1462300376
 GameObject:
   m_ObjectHideFlags: 0
@@ -2547,7 +2248,6 @@ GameObject:
   - component: {fileID: 1511639534}
   - component: {fileID: 1511639533}
   - component: {fileID: 1511639532}
-  - component: {fileID: 1511639535}
   m_Layer: 3
   m_Name: Sphere (9)
   m_TagString: Untagged
@@ -2644,28 +2344,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511639530}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &1511639535
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511639530}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &1534807719
 GameObject:
   m_ObjectHideFlags: 0
@@ -2771,7 +2449,6 @@ GameObject:
   - component: {fileID: 1763592196}
   - component: {fileID: 1763592195}
   - component: {fileID: 1763592194}
-  - component: {fileID: 1763592197}
   m_Layer: 3
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -2868,28 +2545,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763592192}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &1763592197
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763592192}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &1817018586
 GameObject:
   m_ObjectHideFlags: 0
@@ -2902,7 +2557,6 @@ GameObject:
   - component: {fileID: 1817018590}
   - component: {fileID: 1817018589}
   - component: {fileID: 1817018588}
-  - component: {fileID: 1817018591}
   m_Layer: 3
   m_Name: Sphere (6)
   m_TagString: Untagged
@@ -2999,28 +2653,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817018586}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &1817018591
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817018586}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.50000095
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &1834926979
 GameObject:
   m_ObjectHideFlags: 0
@@ -3033,7 +2665,6 @@ GameObject:
   - component: {fileID: 1834926983}
   - component: {fileID: 1834926982}
   - component: {fileID: 1834926981}
-  - component: {fileID: 1834926984}
   m_Layer: 3
   m_Name: Sphere (3)
   m_TagString: Untagged
@@ -3130,28 +2761,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834926979}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &1834926984
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1834926979}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &1918740378
 GameObject:
   m_ObjectHideFlags: 0
@@ -3164,7 +2773,6 @@ GameObject:
   - component: {fileID: 1918740382}
   - component: {fileID: 1918740381}
   - component: {fileID: 1918740380}
-  - component: {fileID: 1918740383}
   m_Layer: 3
   m_Name: Cube (5)
   m_TagString: Untagged
@@ -3261,28 +2869,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918740378}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &1918740383
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918740378}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &1957780192
 GameObject:
   m_ObjectHideFlags: 0
@@ -3358,7 +2944,6 @@ GameObject:
   - component: {fileID: 1960227027}
   - component: {fileID: 1960227026}
   - component: {fileID: 1960227025}
-  - component: {fileID: 1960227028}
   m_Layer: 3
   m_Name: Cube (7)
   m_TagString: Untagged
@@ -3455,28 +3040,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960227023}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &1960227028
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1960227023}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &2070104829
 GameObject:
   m_ObjectHideFlags: 0
@@ -3489,7 +3052,6 @@ GameObject:
   - component: {fileID: 2070104833}
   - component: {fileID: 2070104832}
   - component: {fileID: 2070104831}
-  - component: {fileID: 2070104834}
   m_Layer: 3
   m_Name: Sphere
   m_TagString: Untagged
@@ -3586,28 +3148,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2070104829}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &2070104834
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2070104829}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 2
-  m_ObstacleAvoidanceType: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

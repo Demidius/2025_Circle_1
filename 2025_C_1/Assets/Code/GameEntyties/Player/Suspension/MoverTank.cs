@@ -1,9 +1,6 @@
-using System;
-using Code.GameEntyties.Player;
 using UnityEngine;
 using Zenject;
-
-namespace Code.TODO
+namespace Code.GameEntyties.Player.Suspension
 {
     public class MoverTank : MonoBehaviour
     {
@@ -40,6 +37,8 @@ namespace Code.TODO
         );
         [SerializeField] private float _stopPushEpsilon = 0.2f;
 
+        public float EnginePower { get; private set; }
+        
         // params
         private float _leftTrackVelocity;
         private float _rightTrackVelocity;
@@ -68,6 +67,8 @@ namespace Code.TODO
             {
                 LeftTrack();
                 RightTrack();
+                
+                EnginePower =  Mathf.Abs(_leftTrackVelocity) + Mathf.Abs(_rightTrackVelocity) / 2;
             }
         }
 

@@ -1,104 +1,59 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-namespace CodeBase.System.GameSystems.Input
+
+namespace Code.System.Input
 {
+    // Контроллер ввода: создаёт InputMain, включает карту и раздаёт события наружу.
     public class InputModuleController : IInputCase, IDisposable
     {
-        private InputModule _inputModule;
-        public event Action<Vector2> OnMoveDirection;
-        public event Action<Vector2> OnMousePoint;
-        public event Action<Vector2> OnSystemMousePoint;
-        public event Action OnDistantAttackDown;
-        public event Action OnDistantAttackUp;
-        public event Action OnMeleeAttack;
-        public event Action OnEscapeDown;
-        public event Action OnTimeSlowBDown;
-        public event Action OnTimeSlowBUp;
+        private readonly InputModule _input;
 
-        // Конструктор может использоваться напрямую или через Zenject
+        public event Action<Vector2> OnMoveDirection;
+        // public event Action<Vector2> OnMousePoint;
+        // public event Action<Vector2> OnSystemMousePoint;
+        // public event Action OnDistantAttackDown;
+        // public event Action OnDistantAttackUp;
+        // public event Action OnMeleeAttack;
+        // public event Action OnEscapeDown;
+        // public event Action OnTimeSlowBDown;
+        // public event Action OnTimeSlowBUp;
+
         public InputModuleController()
         {
-            _inputModule = new InputModule();
-            _inputModule.Enable();
-            
-            _inputModule.Player.Move.performed += OnMove;
-           
+            _input = new InputModule();
+            _input.Enable();
+            _input.Player.Enable();
+
+            // Подписываемся на все фазы, чтобы ничего не потерять
+            _input.Player.Move.started   += OnMove;
+            _input.Player.Move.performed += OnMove;
+            _input.Player.Move.canceled  += OnMove;
+
+            Debug.Log($"[Input] Game Input Module Enabled. Move initial={_input.Player.Move.ReadValue<Vector2>()}");
         }
 
+        private void OnMove(InputAction.CallbackContext ctx)
+        {
+            var v = ctx.ReadValue<Vector2>();
+            Debug.Log($"[Input] Move {ctx.phase}: {v}");
+            OnMoveDirection?.Invoke(v);
+        }
 
         public void SwitchGameplayState(bool isActive)
         {
-
-            if (isActive)
-                _inputModule.Player.Enable();
-            else
-                _inputModule.Player.Disable();
-        }
-
-        private void OnEscape(InputAction.CallbackContext obj)
-        {
-            // Debug.Log("Escape");
-            OnEscapeDown?.Invoke();
-        }
-
-        private void OnMove(InputAction.CallbackContext context)
-        {
-            Vector2 direction = context.ReadValue<Vector2>();
-
-            OnMoveDirection?.Invoke(direction);
-        }
-
-        private void OnMousePos(InputAction.CallbackContext context)
-        {
-            Vector2 position = context.ReadValue<Vector2>();
-            OnMousePoint?.Invoke(position);
-        }
-        private void OnSystemMousePos(InputAction.CallbackContext context)
-        {
-            Vector2 position = context.ReadValue<Vector2>();
-            OnSystemMousePoint?.Invoke(position);
-        }
-
-        private void OnDistansDown(InputAction.CallbackContext context)
-        {
-            OnDistantAttackDown?.Invoke();
-        }
-
-        private void OnDistansUp(InputAction.CallbackContext context)
-        {
-            OnDistantAttackUp?.Invoke();
-        }
-
-        private void OnMelee(InputAction.CallbackContext context)
-        {
-            OnMeleeAttack?.Invoke();
-        }
-
-        private void OnSlowTime(InputAction.CallbackContext context)
-        {
-            OnTimeSlowBDown?.Invoke();
-        }
-
-        private void OffSlowTime(InputAction.CallbackContext obj)
-        {
-            OnTimeSlowBUp?.Invoke();
+            if (isActive) _input.Player.Enable();
+            else _input.Player.Disable();
         }
 
         public void Dispose()
         {
-            // Отписываемся от событий, чтобы избежать утечек памяти
-            _inputModule.Player.Move.performed -= OnMove;
-           
+            _input.Player.Move.started   -= OnMove;
+            _input.Player.Move.performed -= OnMove;
+            _input.Player.Move.canceled  -= OnMove;
 
-            // Отключаем и освобождаем ресурсы InputModule
-            _inputModule.Disable();
-            _inputModule.Dispose();
+            _input.Disable();
+            _input.Dispose();
         }
-
-
-
-
     }
-
 }

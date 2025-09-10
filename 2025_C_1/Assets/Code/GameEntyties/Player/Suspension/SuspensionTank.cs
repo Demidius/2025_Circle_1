@@ -16,8 +16,8 @@ namespace Code.TODO
         [SerializeField] private float rayLength = 1.0f; // длина рейкаста
         [SerializeField] LayerMask _layerMask;
 
-        [SerializeField]
-        private float offset = 1f;
+        // [SerializeField]
+        // private float _offset = 1f;
 
         private void FixedUpdate()
         {

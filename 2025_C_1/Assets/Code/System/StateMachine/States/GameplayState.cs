@@ -1,6 +1,7 @@
-
-using CodeBase.System.GameSystems.Input;
+using Code.System.Input;
 using CodeBase.System.GameSystems.StateMachine.Core;
+using UnityEngine;
+using UnityEngine.InputSystem;
 using Zenject;
 
 namespace CodeBase.System.GameSystems.StateMachine.States
@@ -20,6 +21,7 @@ namespace CodeBase.System.GameSystems.StateMachine.States
 
         public override void Enter()
         {
+            CursorLock();
             _inputCase.SwitchGameplayState(true);
         }
 
@@ -28,5 +30,11 @@ namespace CodeBase.System.GameSystems.StateMachine.States
 
         }
 
+        
+        void CursorLock()
+        {
+            Cursor.visible = false;  
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 }
