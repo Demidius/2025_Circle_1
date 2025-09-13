@@ -7,9 +7,8 @@ namespace CodeBase.System.GameSystems.AudioModule.BaseLogic
     public class AudioTracksBase : MonoBehaviour
     {
         private AudioManager _audioManager;
-       
-       
-
+      
+        
 
         [Inject]
         private void Construct(AudioManager audioManager)
@@ -29,6 +28,18 @@ namespace CodeBase.System.GameSystems.AudioModule.BaseLogic
         public EventReference Engine;
         public EventReference StartEngine;
         public EventReference StopEngine;
+        public EventReference Force1;
+        public EventReference Force2;
+        public EventReference StartForceEngine;
+        public EventReference StopForceEngine;
+        public EventReference TransmissionChanger;
+        public EventReference TrackSound;
+       
+        // Effects
+        public EventReference Explosion;
+        public EventReference GunShoot;
+        
+        
         // public EventReference EnemyShoot;
         // public EventReference Spawn;
         // public EventReference SpiderStep;
@@ -63,9 +74,18 @@ namespace CodeBase.System.GameSystems.AudioModule.BaseLogic
             _audioManager.InitializeSoundPool(MenuEmbient, 5);
             //
             // // Игровые звуки
-            _audioManager.InitializeSoundPool(Engine, 5);
+            _audioManager.InitializeSoundPool(Engine, 1);
             _audioManager.InitializeSoundPool(StartEngine, 5);
             _audioManager.InitializeSoundPool(StopEngine, 5);
+            _audioManager.InitializeSoundPool(Force1, 1);
+            _audioManager.InitializeSoundPool(Force2, 1);
+            _audioManager.InitializeSoundPool(StartForceEngine, 3);
+            _audioManager.InitializeSoundPool(StopForceEngine, 3);
+            _audioManager.InitializeSoundPool(TransmissionChanger, 3);
+            _audioManager.InitializeSoundPool(TrackSound, 3);
+           
+            _audioManager.InitializeSoundPool(Explosion, 30);
+            _audioManager.InitializeSoundPool(GunShoot, 15);
             // _audioManager.InitializeSoundPool(EnemyShoot, 10);
             // _audioManager.InitializeSoundPool(Spawn, 5);
             // _audioManager.InitializeSoundPool(SpiderStep, 5);

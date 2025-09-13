@@ -99,7 +99,7 @@ namespace Zenject.Internal
                 + "\n[CreateAssetMenu(fileName = \"CLASS_NAME\", menuName = \"Installers/CLASS_NAME\")]"
                 + "\npublic class CLASS_NAME : ScriptableObjectInstaller<CLASS_NAME>"
                 + "\n{"
-                + "\n    public override void InstallBindings()"
+                + "\n    public override void BaseSceneInstaller()"
                 + "\n    {"
                 + "\n    }"
                 + "\n}");
@@ -114,7 +114,7 @@ namespace Zenject.Internal
                 + "\n"
                 + "\npublic class CLASS_NAME : MonoInstaller"
                 + "\n{"
-                + "\n    public override void InstallBindings()"
+                + "\n    public override void BaseSceneInstaller()"
                 + "\n    {"
                 + "\n    }"
                 + "\n}");
@@ -129,7 +129,7 @@ namespace Zenject.Internal
                 + "\n"
                 + "\npublic class CLASS_NAME : Installer<CLASS_NAME>"
                 + "\n{"
-                + "\n    public override void InstallBindings()"
+                + "\n    public override void BaseSceneInstaller()"
                 + "\n    {"
                 + "\n    }"
                 + "\n}");
@@ -153,7 +153,7 @@ namespace Zenject.Internal
                 + "\n        return window;"
                 + "\n    }"
                 + "\n"
-                + "\n    public override void InstallBindings()"
+                + "\n    public override void BaseSceneInstaller()"
                 + "\n    {"
                 + "\n        // TODO"
                 + "\n    }"

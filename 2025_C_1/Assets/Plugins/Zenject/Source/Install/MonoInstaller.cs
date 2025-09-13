@@ -42,7 +42,7 @@ namespace Zenject
         {
             var installer = MonoInstallerUtil.CreateInstaller<TDerived>(resourcePath, container);
             container.Inject(installer, extraArgs);
-            installer.InstallBindings();
+            installer.BaseSceneInstaller();
             return installer;
         }
     }
@@ -59,7 +59,7 @@ namespace Zenject
         {
             var installer = MonoInstallerUtil.CreateInstaller<TDerived>(resourcePath, container);
             container.InjectExplicit(installer, InjectUtil.CreateArgListExplicit(p1));
-            installer.InstallBindings();
+            installer.BaseSceneInstaller();
             return installer;
         }
     }
@@ -76,7 +76,7 @@ namespace Zenject
         {
             var installer = MonoInstallerUtil.CreateInstaller<TDerived>(resourcePath, container);
             container.InjectExplicit(installer, InjectUtil.CreateArgListExplicit(p1, p2));
-            installer.InstallBindings();
+            installer.BaseSceneInstaller();
             return installer;
         }
     }
@@ -93,7 +93,7 @@ namespace Zenject
         {
             var installer = MonoInstallerUtil.CreateInstaller<TDerived>(resourcePath, container);
             container.InjectExplicit(installer, InjectUtil.CreateArgListExplicit(p1, p2, p3));
-            installer.InstallBindings();
+            installer.BaseSceneInstaller();
             return installer;
         }
     }
@@ -110,7 +110,7 @@ namespace Zenject
         {
             var installer = MonoInstallerUtil.CreateInstaller<TDerived>(resourcePath, container);
             container.InjectExplicit(installer, InjectUtil.CreateArgListExplicit(p1, p2, p3, p4));
-            installer.InstallBindings();
+            installer.BaseSceneInstaller();
             return installer;
         }
     }
@@ -127,7 +127,7 @@ namespace Zenject
         {
             var installer = MonoInstallerUtil.CreateInstaller<TDerived>(resourcePath, container);
             container.InjectExplicit(installer, InjectUtil.CreateArgListExplicit(p1, p2, p3, p4, p5));
-            installer.InstallBindings();
+            installer.BaseSceneInstaller();
             return installer;
         }
     }

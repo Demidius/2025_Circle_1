@@ -58,10 +58,14 @@ namespace Code.GameEntyties.Player
             // ------------ Ствол: локальный pitch относительно корпуса ------------
             if (_gun != null)
             {
-                Vector3 dirHS = _hull.InverseTransformDirection(camFwdWS);
-                
-                float targetPitch = -Mathf.Rad2Deg * Mathf.Atan2(dirHS.y, dirHS.z);
-                
+                // в локальные координаты башни (после её yaw)
+                Vector3 dirTS = _turret.InverseTransformDirection(_cam.transform.forward);
+
+                // угол возвышения: высота к горизонтальной дальности
+                float horizLen = new Vector2(dirTS.x, dirTS.z).magnitude;
+                float targetPitch = -Mathf.Rad2Deg * Mathf.Atan2(dirTS.y, horizLen);
+
+                // коррекция и кламп
                 float minP = _minPitch + _anglCorrection;
                 float maxP = _maxPitch + _anglCorrection;
                 targetPitch = Mathf.Clamp(targetPitch + _anglCorrection, minP, maxP);
@@ -69,8 +73,10 @@ namespace Code.GameEntyties.Player
                 float currentPitch = NormalizeAngle(_gun.localEulerAngles.x);
                 float newPitch = Mathf.MoveTowardsAngle(currentPitch, targetPitch, _pitchSpeedDeg * Time.deltaTime);
 
-                Vector3 ge = _gun.localEulerAngles;
-                ge.x = newPitch; // только локальный X
+                var ge = _gun.localEulerAngles;
+                ge.x = newPitch;   // только локальный X
+                // не обнуляй Y/Z, если они нужны для отдачи/покачивания;
+                // если нет таких эффектов, можно оставить ноль:
                 ge.y = 0f;
                 ge.z = 0f;
                 _gun.localEulerAngles = ge;

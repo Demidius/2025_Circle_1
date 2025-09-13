@@ -10,7 +10,7 @@ namespace Zenject.Tests.Installers.Installers
             _p1 = p1;
         }
 
-        public override void InstallBindings()
+        public override void BaseSceneInstaller()
         {
             Container.BindInstance(_p1);
         }

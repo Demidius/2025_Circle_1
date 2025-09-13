@@ -2,17 +2,22 @@ using Code.GameEntyties.Player.Turret;
 using UnityEngine;
 using Zenject;
 using CodeBase.System.GameSystems.Pools;
+using UnityEngine.VFX;
 
 namespace Code.GameEntyties.Shell
 {
-    public class Gun : MonoBehaviour
+    public class Gun : AudioSoursMono
     {
-        [Header("Shoot")]
+        [Header("Components")]
         [SerializeField] private Transform _muzzle;
+        [SerializeField] private VisualEffect _shootingFire;
+        [SerializeField] private Rigidbody _playerRb;
+        
+        [Header("Parameters")]
         [SerializeField] private float _muzzleSpeed = 30f;
         [SerializeField] private float _fireRate = 10f; // выстрелов в сек
-        [SerializeField] private ShootingFireEffect _shootingFire;
-        
+        [SerializeField] private float _powerThrowback = 10;
+
         private float _nextShotAt;
 
         [Inject] private IPoolController _poolController;
@@ -31,7 +36,12 @@ namespace Code.GameEntyties.Shell
             var pos = _muzzle ? _muzzle.position : transform.position;
             var rot = _muzzle ? _muzzle.rotation : transform.rotation;
 
-            _shootingFire.gameObject.SetActive(true);
+            if (_shootingFire != null)
+                _shootingFire.SendEvent("OnPlay");
+            
+            _playerRb.AddForceAtPosition(-_muzzle.transform.forward * _powerThrowback, _muzzle.position, ForceMode.Force);
+            
+            _audioManager.PlaySound(_audioTracksBase.GunShoot);
             
             // Берём снаряд из пула и инициализируем
             var shell = _poolController.GetPool<Shell>().GetElement();

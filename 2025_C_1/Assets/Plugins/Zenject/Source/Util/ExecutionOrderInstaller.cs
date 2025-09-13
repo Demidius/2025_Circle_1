@@ -12,7 +12,7 @@ namespace Zenject
             _typeOrder = typeOrder;
         }
 
-        public override void InstallBindings()
+        public override void BaseSceneInstaller()
         {
             // All tickables without explicit priorities assigned are given order of zero,
             // so put all of these before that (ie. negative)

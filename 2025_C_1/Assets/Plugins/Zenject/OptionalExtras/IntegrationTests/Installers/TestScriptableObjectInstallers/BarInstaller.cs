@@ -11,7 +11,7 @@ namespace Zenject.Tests.Installers.ScriptableObjectInstallers
             _value = value;
         }
 
-        public override void InstallBindings()
+        public override void BaseSceneInstaller()
         {
             Container.BindInstance(_value);
         }

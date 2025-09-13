@@ -15,3 +15,5 @@ MonoBehaviour:
   PoolPrefabs:
   - {fileID: 5270998907537854130, guid: c2003f844813eb04491ae5b8a13ce9e0, type: 3}
   - {fileID: 2483692948796990492, guid: 53d88c0e87d10154ab06948e9bac0088, type: 3}
+  - {fileID: 2483692948796990492, guid: 1a9b86024acf024448c66615fd637116, type: 3}
+  - {fileID: 8593733041122647550, guid: a155ddc57ef32284e96f19ea163ab7fe, type: 3}

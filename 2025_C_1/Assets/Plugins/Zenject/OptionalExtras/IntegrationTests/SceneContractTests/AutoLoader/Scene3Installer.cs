@@ -23,7 +23,7 @@ namespace Zenject.Tests.AutoLoadSceneTests
 
     public class Scene3Installer : MonoInstaller<Scene3Installer>
     {
-        public override void InstallBindings()
+        public override void BaseSceneInstaller()
         {
             Container.Bind<Foo>().AsSingle().NonLazy();
         }

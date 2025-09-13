@@ -38,7 +38,7 @@ namespace Zenject.Tests.Bindings
 
         public class FooInstaller : Installer<FooInstaller>
         {
-            public override void InstallBindings()
+            public override void BaseSceneInstaller()
             {
                 InstallFoo(Container);
             }

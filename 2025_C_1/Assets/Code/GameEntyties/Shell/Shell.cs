@@ -1,53 +1,44 @@
+using Code.GameEntyties.Target;
 using UnityEngine;
 using Zenject;
 using CodeBase.System.GameSystems.Pools;
 
 namespace Code.GameEntyties.Shell
 {
-    /// <summary>
-    /// Снаряд под кастомный пул. Создаётся через IPoolController.GetPool<Shell>().GetElement()
-    /// После получения ОБЯЗАТЕЛЬНО вызвать Init(pos, rot, speed).
-    /// </summary>
     public class Shell : MonoBehaviour, IPoolsElement
     {
         [Header("Refs")]
-        [SerializeField] private Rigidbody _rb;          // Rigidbody снаряда
-        [SerializeField] private GameObject _gfx;        // визуал (опц.)
-        [SerializeField] private Collider _col;          // коллайдер (опц.)
+        [SerializeField] Rigidbody _rb;
+        [SerializeField] GameObject _gfx;
+        [SerializeField] Collider _col;
 
         [Header("Life")]
-        [SerializeField] private float _lifeTime = 5f;   // время жизни, сек
+        [SerializeField] float _lifeTime = 5f;
+        [SerializeField] int _damage = 1;
 
-        private float _deathAt;
-        private bool _despawned;
+        [Inject] IPoolController _poolController;
 
-        // DI
-        [Inject] private IPoolController _poolController;
+        float _deathAt;
+        bool _despawned;
 
-        // Кэш слоя Ground
-        private static int s_groundLayer = -2;           // -2 = не инициал; -1 = слоя нет
+        static int s_groundLayer = -2;
+        static int s_targetLayer = -2;
 
-        private void Awake()
+        void Awake()
         {
-            if (s_groundLayer == -2)
-            {
-                s_groundLayer = LayerMask.NameToLayer("Ground");
-                if (s_groundLayer == -1)
-                    Debug.LogWarning("[Shell] Layer 'Ground' не найден. Можно использовать тег 'Ground'.");
-            }
+            if (s_groundLayer == -2) s_groundLayer = LayerMask.NameToLayer("Ground");
+            if (s_targetLayer == -2) s_targetLayer = LayerMask.NameToLayer("Target");
 
-            if (_rb == null)  _rb  = GetComponent<Rigidbody>();
-            if (_col == null) _col = GetComponent<Collider>();
+            if (!_rb)  _rb  = GetComponent<Rigidbody>();
+            if (!_col) _col = GetComponent<Collider>();
         }
 
-        private void OnEnable() => enabled = true;
-        private void OnDisable() => enabled = false;
+        void OnEnable()  => enabled = true;
+        void OnDisable() => enabled = false;
 
-        /// <summary>Вызывай сразу после получения из пула</summary>
         public void Init(Vector3 pos, Quaternion rot, float speed)
         {
             transform.SetPositionAndRotation(pos, rot);
-
             _despawned = false;
             _deathAt = Time.time + Mathf.Max(0f, _lifeTime);
 
@@ -56,44 +47,60 @@ namespace Code.GameEntyties.Shell
 
             if (_rb)
             {
-                _rb.linearVelocity = transform.forward * speed; // предпочтительно linearVelocity
+                _rb.linearVelocity = transform.forward * speed;
                 _rb.angularVelocity = Vector3.zero;
+                _rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
             }
         }
 
-        private void Update()
+        void Update()
         {
             if (!_despawned && Time.time >= _deathAt)
                 DespawnOnce();
         }
 
-        private void OnCollisionEnter(Collision col)
+        void OnCollisionEnter(Collision col)
         {
             if (_despawned) return;
 
-            bool hitGround =
-                (s_groundLayer != -1 && col.gameObject.layer == s_groundLayer) ||
-                col.gameObject.CompareTag("Ground");
-
-            if (hitGround)
+            // 1) Попробуем нанести урон
+            var taker = col.collider.GetComponent<IDamageTaker>() 
+                     ?? col.collider.GetComponentInParent<IDamageTaker>();
+            if (taker != null)
             {
-                // Спавним взрыв через твой пул
+                var cp = col.GetContact(0);
+                var info = new DamageInfo(
+                    amount: _damage,
+                    point: cp.point,
+                    normal: cp.normal,
+                    dir: _rb ? _rb.linearVelocity.normalized : transform.forward
+                );
+                taker.ApplyDamage(info);
+            }
+
+            // 2) Взрыв/деспавн при любом валидном попадании в мир/цель
+            int layer = col.gameObject.layer;
+            bool hitSurface =
+                (s_groundLayer != -1 && layer == s_groundLayer) ||
+                (s_targetLayer != -1 && layer == s_targetLayer) ||
+                taker != null; // если был урон — тоже деспавним
+
+            if (hitSurface)
+            {
                 var explosion = _poolController.GetPool<Explosion>().GetElement();
-                explosion.Init(transform.position, transform.rotation, 0f); // speed тут не нужен
+                explosion.Init(transform.position, transform.rotation, 0f);
                 DespawnOnce();
             }
         }
 
-        private void DespawnOnce()
+        void DespawnOnce()
         {
             if (_despawned) return;
             _despawned = true;
-
-            Deactivate(); // сбросим состояние
-            _poolController.ReturnToPool(this); // вернём в пул (он выключит объект)
+            Deactivate();
+            _poolController.ReturnToPool(this);
         }
 
-        // ===== IPoolsElement =====
         public void Deactivate()
         {
             if (_col) _col.enabled = false;

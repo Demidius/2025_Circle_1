@@ -14,7 +14,7 @@ namespace Zenject
             _name = name;
         }
 
-        public override void InstallBindings()
+        public override void BaseSceneInstaller()
         {
 #if !ZEN_TESTS_OUTSIDE_UNITY
             var defaultParent = new GameObject(_name);

@@ -704,7 +704,7 @@ namespace Zenject
         public void Install<TInstaller>()
             where TInstaller : Installer
         {
-            Instantiate<TInstaller>().InstallBindings();
+            Instantiate<TInstaller>().BaseSceneInstaller();
         }
 
         // Note: You might want to use Installer<> as your base class instead to allow
@@ -712,7 +712,7 @@ namespace Zenject
         public void Install<TInstaller>(object[] extraArgs)
             where TInstaller : Installer
         {
-            Instantiate<TInstaller>(extraArgs).InstallBindings();
+            Instantiate<TInstaller>(extraArgs).BaseSceneInstaller();
         }
 
         public IList ResolveAll(InjectContext context)

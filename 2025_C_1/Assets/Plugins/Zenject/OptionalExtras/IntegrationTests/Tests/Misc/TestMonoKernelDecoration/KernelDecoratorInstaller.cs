@@ -5,7 +5,7 @@ namespace Zenject.Tests.TestAnimationStateBehaviourInject
 {
     public class KernelDecoratorInstaller : Installer<KernelDecoratorInstaller>
     {
-        public override void InstallBindings()
+        public override void BaseSceneInstaller()
         {
             Container.BindInterfacesTo<DecoratableMonoKernel>().AsCached();
             Container.Decorate<IDecoratableMonoKernel>().With<DelayedInitializeKernel>();

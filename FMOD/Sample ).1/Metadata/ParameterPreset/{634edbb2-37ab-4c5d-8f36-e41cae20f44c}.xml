@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{634edbb2-37ab-4c5d-8f36-e41cae20f44c}">
+		<property name="name">
+			<value>TankSpeed</value>
+		</property>
+		<relationship name="folder">
+			<destination>{343dcfe4-82d2-4d8d-9584-05d8297ae6a8}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{56f0c79a-20a3-4fc1-aee2-3af9ecba1a8c}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{56f0c79a-20a3-4fc1-aee2-3af9ecba1a8c}">
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

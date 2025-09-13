@@ -7,7 +7,7 @@ namespace CodeBase._1InstallBindings
 {
     public class GameStateInstaller : MonoInstaller
     {
-        public override void InstallBindings()
+        public override void BaseSceneInstaller()
         {
             Container.BindInterfacesAndSelfTo<SimpleSceneLoader>().AsSingle();
 

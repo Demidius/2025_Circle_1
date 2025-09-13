@@ -28,7 +28,7 @@ namespace Zenject.Tests.Bindings
         {
             public static Foo Foo = new Foo();
 
-            public override void InstallBindings()
+            public override void BaseSceneInstaller()
             {
                 Container.Bind<Foo>().FromInstance(Foo);
             }

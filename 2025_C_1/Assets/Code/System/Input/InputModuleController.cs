@@ -36,7 +36,7 @@ namespace Code.System.Input
         private void OnMove(InputAction.CallbackContext ctx)
         {
             var v = ctx.ReadValue<Vector2>();
-            Debug.Log($"[Input] Move {ctx.phase}: {v}");
+            // Debug.Log($"[Input] Move {ctx.phase}: {v}");
             OnMoveDirection?.Invoke(v);
         }
 

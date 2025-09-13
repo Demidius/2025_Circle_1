@@ -19,7 +19,7 @@ namespace Zenject
     {
         public static void Install(DiContainer container)
         {
-            container.Instantiate<TDerived>().InstallBindings();
+            container.Instantiate<TDerived>().BaseSceneInstaller();
         }
     }
 
@@ -31,7 +31,7 @@ namespace Zenject
         public static void Install(DiContainer container, TParam1 p1)
         {
             container.InstantiateExplicit<TDerived>(
-                InjectUtil.CreateArgListExplicit(p1)).InstallBindings();
+                InjectUtil.CreateArgListExplicit(p1)).BaseSceneInstaller();
         }
     }
 
@@ -41,7 +41,7 @@ namespace Zenject
         public static void Install(DiContainer container, TParam1 p1, TParam2 p2)
         {
             container.InstantiateExplicit<TDerived>(
-                InjectUtil.CreateArgListExplicit(p1, p2)).InstallBindings();
+                InjectUtil.CreateArgListExplicit(p1, p2)).BaseSceneInstaller();
         }
     }
 
@@ -51,7 +51,7 @@ namespace Zenject
         public static void Install(DiContainer container, TParam1 p1, TParam2 p2, TParam3 p3)
         {
             container.InstantiateExplicit<TDerived>(
-                InjectUtil.CreateArgListExplicit(p1, p2, p3)).InstallBindings();
+                InjectUtil.CreateArgListExplicit(p1, p2, p3)).BaseSceneInstaller();
         }
     }
 
@@ -61,7 +61,7 @@ namespace Zenject
         public static void Install(DiContainer container, TParam1 p1, TParam2 p2, TParam3 p3, TParam4 p4)
         {
             container.InstantiateExplicit<TDerived>(
-                InjectUtil.CreateArgListExplicit(p1, p2, p3, p4)).InstallBindings();
+                InjectUtil.CreateArgListExplicit(p1, p2, p3, p4)).BaseSceneInstaller();
         }
     }
 
@@ -71,7 +71,7 @@ namespace Zenject
         public static void Install(DiContainer container, TParam1 p1, TParam2 p2, TParam3 p3, TParam4 p4, TParam5 p5)
         {
             container.InstantiateExplicit<TDerived>(
-                InjectUtil.CreateArgListExplicit(p1, p2, p3, p4, p5)).InstallBindings();
+                InjectUtil.CreateArgListExplicit(p1, p2, p3, p4, p5)).BaseSceneInstaller();
         }
     }
 }

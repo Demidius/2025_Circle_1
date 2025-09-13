@@ -9,7 +9,7 @@ namespace Zenject.Tests.Bindings.FromComponentInHierarchyGameObjectContext
         [SerializeField]
         Foo _foo;
 
-        public override void InstallBindings()
+        public override void BaseSceneInstaller()
         {
             Container.Bind<Foo>().FromInstance(_foo).AsSingle();
             Container.Bind<Gorp>().FromComponentInHierarchy().AsSingle();

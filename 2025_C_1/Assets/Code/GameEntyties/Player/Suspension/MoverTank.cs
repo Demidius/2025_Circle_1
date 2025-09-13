@@ -1,167 +1,124 @@
+using Code.GameEntities.Vehicle;
+using Code.TODO;
 using UnityEngine;
 using Zenject;
-namespace Code.GameEntyties.Player.Suspension
+
+namespace Code.GameEntities.Player.Suspension
 {
-    public class MoverTank : MonoBehaviour
+    public sealed class MoverTank : MonoBehaviour
     {
-        [Inject] private TanksEngine _tanksEngine;
+        [Inject] ITankTelemetryReadOnly _telemetry;
 
-        [Header("Refs")]
-        [SerializeField] private Rigidbody carRb;
-
-        [Header("Ray")]
-        [SerializeField] private float rayLength = 1.0f;
-        [SerializeField] private LayerMask groundMask = ~0;
-        [SerializeField] private Transform _leftSideTransform;
-        [SerializeField] private Transform _rightSideTransform;
+        [SerializeField] Rigidbody carRb;
+        [SerializeField] float rayLength = 1.0f;
+        [SerializeField] LayerMask groundMask = ~0;
+        [SerializeField] Transform _leftSideTransform;
+        [SerializeField] Transform _rightSideTransform;
 
         [Header("Тяга")]
-        [SerializeField] private float _powerMod = 1500f;
-        [SerializeField] private float _maxTrackSpeed = 5f;
+        [SerializeField] float _powerMod = 1500f;
+        [SerializeField] float _maxTrackSpeed = 5f;
 
-        [Header("Сопротивления (продольные)")]
-        [SerializeField] private float _longitudinalFriction = 0f;
-        [SerializeField] private float _coastFriction = 1200f;
-        [SerializeField] private float _coastDeadzone = 0.05f;
+        [Header("Сопрот. продольные")]
+        [SerializeField] float _longitudinalFriction = 0f;   // активное торможение при газе
+        [SerializeField] float _coastFriction = 1200f;       // накат (когда газ в мёртвой зоне)
+        [SerializeField] float _coastDeadzone = 0.05f;
 
-        [Tooltip("Скорость изменения тяги на гусенице (ед/с)")]
-        [SerializeField] private float changeSpeed = 1.5f;
+        [SerializeField] float changeSpeed = 1.5f;           // скорость изменения команды на гусеницу (в ед/с)
 
         [Header("Speed / Torque")]
-        [SerializeField] private float _topSpeed = 5f;
-        [SerializeField] private AnimationCurve availableTorque = new AnimationCurve(
+        [SerializeField] float _topSpeed = 5f;
+        [SerializeField] AnimationCurve availableTorque = new AnimationCurve(
             new Keyframe(0.00f, 0.50f),
             new Keyframe(0.25f, 1.00f),
             new Keyframe(0.75f, 1.00f),
             new Keyframe(1.00f, 0.50f)
         );
-        [SerializeField] private float _stopPushEpsilon = 0.2f;
+        [SerializeField] float _stopPushEpsilon = 0.2f;
 
-        public float EnginePower { get; private set; }
-        
-        // params
-        private float _leftTrackVelocity;
-        private float _rightTrackVelocity;
-        private float _leftVelTarget;
-        private float _rightVelTarget;
+        float _leftTrackVelocity, _rightTrackVelocity;   // сглаженные команды [-1..1]
+        float _leftVelTarget, _rightVelTarget;           // целевые команды [-1..1]
 
-        private bool _engineOn = false;
+        Vector3 _lastForceL, _lastForceR;
 
-        // debug
-        private Vector3 _lastForce;
-        private Vector3 _lastHitPoint;
-
-        private void Start()
+        void Update()
         {
-            _tanksEngine.ChangeEngineState += SetEngineState;
-        }
-
-        private void OnDisable()
-        {
-            _tanksEngine.ChangeEngineState -= SetEngineState;
-        }
-
-        private void Update()
-        {
-            if (_engineOn)
+            if (_telemetry.EngineOn)
             {
-                LeftTrack();
-                RightTrack();
+                _leftVelTarget  = Mathf.Clamp(_telemetry.LeftTrack01,  -1f, 1f);
+                _rightVelTarget = Mathf.Clamp(_telemetry.RightTrack01, -1f, 1f);
+            }
+            else
+            {
                 
-                EnginePower =  Mathf.Abs(_leftTrackVelocity) + Mathf.Abs(_rightTrackVelocity) / 2;
+                _leftVelTarget  = Mathf.MoveTowards(_leftVelTarget,  0f, changeSpeed * Time.deltaTime);
+                _rightVelTarget = Mathf.MoveTowards(_rightVelTarget, 0f, changeSpeed * Time.deltaTime);
             }
         }
 
-        private void SetEngineState(bool state)
+        void FixedUpdate()
         {
-            _engineOn = state;
+            // сглаживание команд в физ. тике — без рассинхрона
+            float dt = Time.fixedDeltaTime;
+            _leftTrackVelocity  = Mathf.MoveTowards(_leftTrackVelocity,  _leftVelTarget,  changeSpeed * dt);
+            _rightTrackVelocity = Mathf.MoveTowards(_rightTrackVelocity, _rightVelTarget, changeSpeed * dt);
+
+            // применение сил
+            _lastForceL = TrackLogic(_leftSideTransform,  _leftTrackVelocity);
+            _lastForceR = TrackLogic(_rightSideTransform, _rightTrackVelocity);
         }
 
-        private void LeftTrack()
+        // Возвращаем силу для дебага
+        Vector3 TrackLogic(Transform t, float velocity01)
         {
-            _leftVelTarget =
-                (Input.GetKey(KeyCode.Q) ? 1f : 0f) +
-                (Input.GetKey(KeyCode.A) ? -1f : 0f);
-
-            _leftVelTarget = Mathf.Clamp(_leftVelTarget, -1f, 1f);
-            _leftTrackVelocity = Mathf.MoveTowards(_leftTrackVelocity, _leftVelTarget, changeSpeed * Time.deltaTime);
-        }
-
-        private void RightTrack()
-        {
-            _rightVelTarget =
-                (Input.GetKey(KeyCode.E) ? 1f : 0f) +
-                (Input.GetKey(KeyCode.D) ? -1f : 0f);
-
-            _rightVelTarget = Mathf.Clamp(_rightVelTarget, -1f, 1f);
-            _rightTrackVelocity = Mathf.MoveTowards(_rightTrackVelocity, _rightVelTarget, changeSpeed * Time.deltaTime);
-        }
-
-        private void FixedUpdate()
-        {
-            TrackLogic(_leftSideTransform, _rightTrackVelocity);
-            TrackLogic(_rightSideTransform, _leftTrackVelocity);
-        }
-
-        private void TrackLogic(Transform t, float velocity01)
-        {
-            _lastForce = Vector3.zero;
-            _lastHitPoint = t ? t.position : transform.position;
-            if (!carRb || !t) return;
+            if (!carRb || !t) return Vector3.zero;
 
             var ray = new Ray(t.position, -t.up);
             if (!Physics.Raycast(ray, out RaycastHit hit, rayLength, groundMask, QueryTriggerInteraction.Ignore))
-                return;
+                return Vector3.zero;
 
-            _lastHitPoint = hit.point;
-
-            // скорость точки опоры
+            // скорость точки контакта вдоль направления гусеницы
             Vector3 pointVel = carRb.GetPointVelocity(hit.point);
-            float forwardSpeed = Vector3.Dot(pointVel, t.forward); // вдоль ленты
+            float forwardSpeed = Vector3.Dot(pointVel, t.forward);
 
-            // целевая скорость ленты
-            float targetSpeed = velocity01 * _maxTrackSpeed;
+            // целевая линейная скорость дорожки
+            float targetSpeed = Mathf.Clamp(velocity01, -1f, 1f) * _maxTrackSpeed;
             float speedError = targetSpeed - forwardSpeed;
 
-            // нормализованная скорость машины
+            // нормированная скорость шасси (для кривой момента)
             float carForwardSpeed = Vector3.Dot(carRb.linearVelocity, transform.forward);
             float speedNorm = Mathf.Clamp01(Mathf.Abs(carForwardSpeed) / _topSpeed);
-
             float kTorque = availableTorque.Evaluate(speedNorm);
 
+            // не толкаем дальше топ-спида, но сохраним трения
             bool atTopAndAccelerating =
                 (Mathf.Abs(carForwardSpeed) >= (_topSpeed - _stopPushEpsilon)) && (speedError > 0f);
-            if (atTopAndAccelerating) kTorque = 0f;
+            float driveTorque = atTopAndAccelerating ? 0f : (speedError * _powerMod * kTorque);
 
-            // базовая тяга по ошибке
-            Vector3 driveForce = t.forward * (speedError * _powerMod * kTorque);
+            Vector3 force = t.forward * driveTorque;
 
-            // продольное демпфирование:
-            // 1) когда есть инпут — слабое
+            // продольное трение при нажатом газе — НЕ завязываем на kTorque (чтобы не пропадало на Vmax)
             if (_longitudinalFriction > 0f && Mathf.Abs(velocity01) > _coastDeadzone)
-                driveForce += -t.forward * (forwardSpeed * _longitudinalFriction * kTorque);
+                force += -t.forward * (forwardSpeed * _longitudinalFriction);
 
-            // 2) когда инпут ≈ 0 — сильнее тянем к нулю (накат гасим)
+            // трение накатом — всегда
             if (Mathf.Abs(velocity01) <= _coastDeadzone && _coastFriction > 0f)
-                driveForce += -t.forward * (forwardSpeed * _coastFriction);
+                force += -t.forward * (forwardSpeed * _coastFriction);
 
-            _lastForce = driveForce;
-            carRb.AddForceAtPosition(_lastForce, hit.point, ForceMode.Force);
+            carRb.AddForceAtPosition(force, hit.point, ForceMode.Force);
+            return force;
         }
 
-#if UNITY_EDITOR
-        private void OnDrawGizmosSelected()
+        void OnDrawGizmosSelected()
         {
+            // простые гизмо для дебага лучей и последних сил
             Gizmos.color = Color.yellow;
-            if (_leftSideTransform)
-                Gizmos.DrawLine(_leftSideTransform.position, _leftSideTransform.position - _leftSideTransform.up * rayLength);
-            if (_rightSideTransform)
-                Gizmos.DrawLine(_rightSideTransform.position, _rightSideTransform.position - _rightSideTransform.up * rayLength);
+            if (_leftSideTransform)  Gizmos.DrawLine(_leftSideTransform.position,  _leftSideTransform.position  - _leftSideTransform.up * rayLength);
+            if (_rightSideTransform) Gizmos.DrawLine(_rightSideTransform.position, _rightSideTransform.position - _rightSideTransform.up * rayLength);
 
             Gizmos.color = Color.cyan;
-            Gizmos.DrawSphere(_lastHitPoint, 0.05f);
-            Gizmos.DrawRay(_lastHitPoint, _lastForce * 0.001f);
+            if (_leftSideTransform)  Gizmos.DrawRay(_leftSideTransform.position,  _lastForceL * 0.001f);
+            if (_rightSideTransform) Gizmos.DrawRay(_rightSideTransform.position, _lastForceR * 0.001f);
         }
-#endif
     }
 }
