@@ -1,4 +1,4 @@
-using CodeBase.System.GameSystems.Input;
+using Code.System.Input;
 using CodeBase.System.GameSystems.StateMachine.Core;
 using Zenject;
 

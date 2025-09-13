@@ -200,7 +200,7 @@ namespace Zenject
                 using (ProfileTimers.CreateTimedBlock("User Code"))
 #endif
                 {
-                    installer.InstallBindings();
+                    installer.BaseSceneInstaller();
                 }
             }
 
@@ -215,7 +215,7 @@ namespace Zenject
                 using (ProfileTimers.CreateTimedBlock("User Code"))
 #endif
                 {
-                    installer.InstallBindings();
+                    installer.BaseSceneInstaller();
                 }
             }
         }

@@ -9,7 +9,7 @@ namespace Zenject.Tests.Bindings.FromSubContainerPrefabResource
         [SerializeField]
         Bar _bar;
 
-        public override void InstallBindings()
+        public override void BaseSceneInstaller()
         {
             Container.BindInstance(_bar);
             Container.Bind<Gorp>().WithId("gorp").AsSingle();

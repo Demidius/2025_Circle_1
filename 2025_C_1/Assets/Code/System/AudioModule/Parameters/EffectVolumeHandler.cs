@@ -4,24 +4,23 @@ using CodeBase.System.GameSystems.StateMachine.States;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using System.Collections.Generic;
 
 namespace CodeBase.System.GameSystems.AudioModule.Parameters
 {
     public class EffectVolumeHandler : MonoBehaviour
     {
-        [SerializeField] private Slider _volumeSliderMenu;
-        [SerializeField] private Slider _volumeSliderSettings;
-        [SerializeField] private Slider _volumeSliderPause;
+        [Header("Любое количество слайдеров громкости эффектов")]
+        [SerializeField] private List<Slider> _sliders = new(); // можно 0..∞
 
-        private Slider _activeSlider;
         private float _currentVolume;
-        private bool _isSyncing = false;
+        private bool _isSyncing;
 
         private GameStateMachine _gameStateMachine;
         private PlayerSettingsService _settings;
 
         [Inject]
-        void Construct(GameStateMachine gameStateMachine)
+        private void Construct(GameStateMachine gameStateMachine)
         {
             _gameStateMachine = gameStateMachine;
         }
@@ -31,34 +30,39 @@ namespace CodeBase.System.GameSystems.AudioModule.Parameters
             _settings = new PlayerSettingsService();
             _currentVolume = _settings.EffectVolume;
 
-            InitSlider(_volumeSliderMenu);
-            InitSlider(_volumeSliderSettings);
-            InitSlider(_volumeSliderPause);
+            // подписываем все слайдеры
+            for (int i = 0; i < _sliders.Count; i++)
+            {
+                var slider = _sliders[i];
+                if (slider == null) continue;
+                slider.onValueChanged.AddListener(v => OnSliderChanged(slider, v));
+                slider.value = _currentVolume; // стартовая синхронизация
+            }
 
-            _volumeSliderMenu.value = _currentVolume;
-            _volumeSliderSettings.value = _currentVolume;
-            _volumeSliderPause.value = _currentVolume;
-
-            FMODUnity.RuntimeManager.StudioSystem.setParameterByName(Const.Effectvolume, _currentVolume);
+            ApplyVolume(_currentVolume);
         }
 
         private void OnEnable()
         {
-            _gameStateMachine.OnStateChanged += StateChanged;
+            if (_gameStateMachine != null)
+                _gameStateMachine.OnStateChanged += OnStateChanged;
         }
 
         private void OnDisable()
         {
-            _gameStateMachine.OnStateChanged -= StateChanged;
+            if (_gameStateMachine != null)
+                _gameStateMachine.OnStateChanged -= OnStateChanged;
+
+            // важно снять подписки, если объект могут уничтожать/создавать
+            for (int i = 0; i < _sliders.Count; i++)
+            {
+                var slider = _sliders[i];
+                if (slider == null) continue;
+                slider.onValueChanged.RemoveAllListeners();
+            }
         }
 
-        private void InitSlider(Slider slider)
-        {
-            if (slider == null) return;
-            slider.onValueChanged.AddListener(volume => OnSliderChanged(slider, volume));
-        }
-
-        private void OnSliderChanged(Slider changedSlider, float volume)
+        private void OnSliderChanged(Slider source, float volume)
         {
             if (_isSyncing) return;
 
@@ -66,25 +70,40 @@ namespace CodeBase.System.GameSystems.AudioModule.Parameters
 
             _currentVolume = volume;
             _settings.EffectVolume = volume;
-            FMODUnity.RuntimeManager.StudioSystem.setParameterByName(Const.Effectvolume, volume);
+            ApplyVolume(volume);
 
-            if (changedSlider == _volumeSliderMenu)
-                _volumeSliderSettings.value = volume;
-            else if (changedSlider == _volumeSliderSettings)
-                _volumeSliderMenu.value = volume;
+            // обновляем все остальные слайдеры
+            for (int i = 0; i < _sliders.Count; i++)
+            {
+                var s = _sliders[i];
+                if (s == null || s == source) continue;
+                s.value = volume;
+            }
 
             _isSyncing = false;
         }
 
-        private void StateChanged(GameState state)
+        private void ApplyVolume(float volume)
         {
-            if (state is MenuState)
-                _activeSlider = _volumeSliderMenu;
-            else if (state is PauseState)
-                _activeSlider = _volumeSliderPause;
+            // тут же прокидываем в FMOD параметр
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName(Const.Effectvolume, volume);
+        }
 
-            if (_activeSlider != null)
-                _activeSlider.value = _currentVolume;
+        private void OnStateChanged(GameState state)
+        {
+            // При смене стейта можно:
+            // 1) просто синкнуть все слайдеры с текущим значением:
+            _isSyncing = true;
+            for (int i = 0; i < _sliders.Count; i++)
+            {
+                var s = _sliders[i];
+                if (s == null) continue;
+                s.value = _currentVolume;
+            }
+            _isSyncing = false;
+
+            // Если нужно на конкретных экранах обновлять только видимые — 
+            // можно фильтровать по s.gameObject.activeInHierarchy.
         }
     }
 }

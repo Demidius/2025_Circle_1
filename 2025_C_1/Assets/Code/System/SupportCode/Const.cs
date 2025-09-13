@@ -24,6 +24,8 @@ namespace CodeBase.System.Core.Consts
         public const int MaxValieBulletsOnScene = 7;
         public static string GameScene = "Assets/Scenes/GameScene.unity";
         
+        
+
 
         public static bool AreFloatsEqual(float a, float b)
         {
@@ -31,9 +33,11 @@ namespace CodeBase.System.Core.Consts
         }
         
         //Audio
-        public const string Effectvolume = "EffectVolume";
+        public const string Effectvolume = "EffectsVolume";
         public const string Musicvolume = "MusicVolume";
         public const string TimeEffect = "TimeEffect";
+        public const string TankEngineForce = "TankEngineForce";
+        public const string TankSpeed = "TankSpeed";
 
         public static int EnemiesStepSouses = 0;
         public static bool EnableToAddStepSources

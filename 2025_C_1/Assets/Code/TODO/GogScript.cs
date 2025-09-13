@@ -4,9 +4,7 @@ using CodeBase.System.Core.Consts;
 using CodeBase.System.Services.Addressables;
 using UnityEngine;
 using Zenject;
-
-
-namespace CodeBase.OnWork
+namespace Code.TODO
 {
     public class GogScript : MonoBehaviour
     {
@@ -15,7 +13,7 @@ namespace CodeBase.OnWork
 
         private void Start()
         {
-            _simpleSceneLoader.LoadAsync(Const.GameScene);
+            _ = _simpleSceneLoader.LoadAsync(Const.GameScene);
         }
         
         // private void Update()

@@ -74,7 +74,7 @@ namespace Zenject
 
                         ZenPools.DespawnList(extraArgs);
 
-                        installer.InstallBindings();
+                        installer.BaseSceneInstaller();
                     }));
         }
     }

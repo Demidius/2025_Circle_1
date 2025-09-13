@@ -175,7 +175,7 @@ namespace Zenject.Tests
 
         public class QuxInstaller : Installer<QuxInstaller>
         {
-            public override void InstallBindings()
+            public override void BaseSceneInstaller()
             {
                 Container.Bind<Qux>().AsSingle();
                 Container.Bind<Bar>().AsSingle();

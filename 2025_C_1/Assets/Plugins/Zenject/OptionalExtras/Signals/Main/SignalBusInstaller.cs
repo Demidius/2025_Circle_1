@@ -5,7 +5,7 @@ namespace Zenject
     // Note that you only need to install this once
     public class SignalBusInstaller : Installer<SignalBusInstaller>
     {
-        public override void InstallBindings()
+        public override void BaseSceneInstaller()
         {
             Assert.That(!Container.HasBinding<SignalBus>(), "Detected multiple SignalBus bindings.  SignalBusInstaller should only be installed once");
 

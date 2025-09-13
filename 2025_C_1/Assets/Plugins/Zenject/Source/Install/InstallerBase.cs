@@ -15,7 +15,7 @@ namespace Zenject
             get { return true; }
         }
 
-        public abstract void InstallBindings();
+        public abstract void BaseSceneInstaller();
     }
 }
 

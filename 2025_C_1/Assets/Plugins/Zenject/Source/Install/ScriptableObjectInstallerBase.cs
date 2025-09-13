@@ -22,7 +22,7 @@ namespace Zenject
             get { return true; }
         }
 
-        public virtual void InstallBindings()
+        public virtual void BaseSceneInstaller()
         {
             throw new NotImplementedException();
         }

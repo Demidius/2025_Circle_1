@@ -33,7 +33,7 @@ namespace Zenject.Tests.Bindings
                 _value = value;
             }
 
-            public override void InstallBindings()
+            public override void BaseSceneInstaller()
             {
                 Container.Bind<Foo>().AsTransient().WithArgumentsExplicit(
                     InjectUtil.CreateArgListExplicit(_value));

@@ -24,6 +24,88 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
+--- !u!114 &-8726520507060631698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/TrackSound
+  m_EditorClassIdentifier: 
+  Path: event:/Player/TrackSound
+  Guid:
+    Data1: -281532285
+    Data2: 1103557754
+    Data3: 504385199
+    Data4: -325440580
+  Banks:
+  - {fileID: 2563684117429943378}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 763426737556618336}
+  - {fileID: -1897952772789508986}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4992
+--- !u!114 &-8637076872839566092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Force2/EffectsVolume
+  m_EditorClassIdentifier: 
+  Name: EffectsVolume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 325910103
+    data2: 1523638070
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-8370235885151169756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/EngineBasic
+  m_EditorClassIdentifier: 
+  Path: event:/Player/EngineBasic
+  Guid:
+    Data1: 315556561
+    Data2: 1213561540
+    Data3: 1628303027
+    Data4: 572854673
+  Banks:
+  - {fileID: 2563684117429943378}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 1343197109098302746}
+  - {fileID: -7471886379087206802}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 14800
 --- !u!114 &-8170745089661459458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,10 +121,10 @@ MonoBehaviour:
   Path: ../FMOD/Sample ).1/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638919968170484804
+  lastModified: 638931983015468384
   FileSizes:
   - Name: Desktop
-    Value: 1336
+    Value: 2016
   Exists: 1
 --- !u!114 &-7674982007118472510
 MonoBehaviour:
@@ -68,6 +150,107 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
+--- !u!114 &-7471886379087206802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/EngineBasic/TankEngineForce
+  m_EditorClassIdentifier: 
+  Name: TankEngineForce
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 936692302
+    data2: 3549676080
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-7453047804103437443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/TankSpeed
+  m_EditorClassIdentifier: 
+  Name: TankSpeed
+  StudioPath: parameter:/TankSpeed
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1381904301
+    data2: 3283676000
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-7343267223035234332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/TransmissionChanger/EffectsVolume
+  m_EditorClassIdentifier: 
+  Name: EffectsVolume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 325910103
+    data2: 1523638070
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-7059784456682145681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Force1
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Force1
+  Guid:
+    Data1: 772469131
+    Data2: 1090126451
+    Data3: -228969820
+    Data4: -1818672928
+  Banks:
+  - {fileID: 2563684117429943378}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -6720301482062753956}
+  - {fileID: 8294470903116007498}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 19555
 --- !u!114 &-6930846055511057937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +271,30 @@ MonoBehaviour:
   ID:
     data1: 325910103
     data2: 1523638070
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-6720301482062753956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Force1/TankEngineForce
+  m_EditorClassIdentifier: 
+  Name: TankEngineForce
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 936692302
+    data2: 3549676080
   Type: 0
   IsGlobal: 1
   Labels: []
@@ -140,6 +347,54 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
+--- !u!114 &-5677138435629369824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/StopEngine/EffectsVolume
+  m_EditorClassIdentifier: 
+  Name: EffectsVolume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 325910103
+    data2: 1523638070
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-5155179973997689883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Explosion/EffectsVolume
+  m_EditorClassIdentifier: 
+  Name: EffectsVolume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 325910103
+    data2: 1523638070
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &-4690202221844158172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +419,54 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
+--- !u!114 &-4651283982951001478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/StopEngine/TankEngineForce
+  m_EditorClassIdentifier: 
+  Name: TankEngineForce
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 936692302
+    data2: 3549676080
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-3927679094497060011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/StopForceEngine/EffectsVolume
+  m_EditorClassIdentifier: 
+  Name: EffectsVolume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 325910103
+    data2: 1523638070
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &-2463874090461815609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +487,58 @@ MonoBehaviour:
   ID:
     data1: 3287128984
     data2: 2322066893
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-2025140287267524669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/StartEngine
+  m_EditorClassIdentifier: 
+  Path: event:/Player/StartEngine
+  Guid:
+    Data1: 610879949
+    Data2: 1170844655
+    Data3: -4408672
+    Data4: 944536181
+  Banks:
+  - {fileID: 2563684117429943378}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 7379926705969067575}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2400
+--- !u!114 &-1897952772789508986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/TrackSound/TankSpeed
+  m_EditorClassIdentifier: 
+  Name: TankSpeed
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1381904301
+    data2: 3283676000
   Type: 0
   IsGlobal: 1
   Labels: []
@@ -232,6 +587,30 @@ MonoBehaviour:
   ID:
     data1: 3287128984
     data2: 2322066893
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-1102083996381217743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/StartForceEngine/EffectsVolume
+  m_EditorClassIdentifier: 
+  Name: EffectsVolume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 325910103
+    data2: 1523638070
   Type: 0
   IsGlobal: 1
   Labels: []
@@ -286,15 +665,29 @@ MonoBehaviour:
   - {fileID: 2492772645788789221}
   - {fileID: 3168994522494471372}
   - {fileID: 906017723708320324}
+  - {fileID: -8370235885151169756}
+  - {fileID: -2025140287267524669}
+  - {fileID: 5239162362088830652}
+  - {fileID: 1940756225821274614}
+  - {fileID: 6502083194485852453}
+  - {fileID: -7059784456682145681}
+  - {fileID: 1618726876773000167}
+  - {fileID: 5270614469613103890}
+  - {fileID: 6457506520249214909}
+  - {fileID: 7262064289494044030}
+  - {fileID: 7604623828262278323}
+  - {fileID: -8726520507060631698}
   EditorParameters:
   - {fileID: -5937928169067315100}
   - {fileID: -1222063912259315354}
+  - {fileID: 7527978240698537714}
+  - {fileID: -7453047804103437443}
   MasterBanks:
   - {fileID: 2563684117429943378}
   StringsBanks:
   - {fileID: -8170745089661459458}
   cacheVersion: 131849
-  cacheTime: 638919968170484804
+  cacheTime: 638931983015468384
   SerializableEventsDict:
   - key: event:/Music/GameMusic
     index: 0
@@ -316,6 +709,30 @@ MonoBehaviour:
     index: 8
   - key: event:/Buttons/ButtunOn
     index: 9
+  - key: event:/Player/EngineBasic
+    index: 10
+  - key: event:/Player/StartEngine
+    index: 11
+  - key: event:/Player/StopEngine
+    index: 12
+  - key: event:/Player/StartForceEngine
+    index: 13
+  - key: event:/Player/StopForceEngine
+    index: 14
+  - key: event:/Player/Force1
+    index: 15
+  - key: event:/Player/Force2
+    index: 16
+  - key: event:/Player/TransmissionChanger
+    index: 17
+  - key: event:/Effects/Explosion
+    index: 18
+  - key: event:/Effects/Explosion3D
+    index: 19
+  - key: event:/Player/TankShoot
+    index: 20
+  - key: event:/Player/TrackSound
+    index: 21
 --- !u!114 &245332160243653038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +785,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &763426737556618336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/TrackSound/EffectsVolume
+  m_EditorClassIdentifier: 
+  Name: EffectsVolume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 325910103
+    data2: 1523638070
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &906017723708320324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,6 +837,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &1343197109098302746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/EngineBasic/EffectsVolume
+  m_EditorClassIdentifier: 
+  Name: EffectsVolume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 325910103
+    data2: 1523638070
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &1544447359636142119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,6 +889,87 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &1618726876773000167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Force2
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Force2
+  Guid:
+    Data1: 478177534
+    Data2: 1089822409
+    Data3: -1735731544
+    Data4: -728427943
+  Banks:
+  - {fileID: 2563684117429943378}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 1988460635602345949}
+  - {fileID: -8637076872839566092}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 17800
+--- !u!114 &1940756225821274614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/StartForceEngine
+  m_EditorClassIdentifier: 
+  Path: event:/Player/StartForceEngine
+  Guid:
+    Data1: 2122121229
+    Data2: 1301648691
+    Data3: 194935947
+    Data4: -2033548949
+  Banks:
+  - {fileID: 2563684117429943378}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -1102083996381217743}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1510
+--- !u!114 &1988460635602345949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Force2/TankEngineForce
+  m_EditorClassIdentifier: 
+  Name: TankEngineForce
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 936692302
+    data2: 3549676080
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &2492772645788789221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,6 +998,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &2539049569360487728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/TankShoot/EffectsVolume
+  m_EditorClassIdentifier: 
+  Name: EffectsVolume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 325910103
+    data2: 1523638070
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &2563684117429943378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,10 +1037,10 @@ MonoBehaviour:
   Path: ../FMOD/Sample ).1/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638919968170449168
+  lastModified: 638931983015428381
   FileSizes:
   - Name: Desktop
-    Value: 11216
+    Value: 1058592
   Exists: 1
 --- !u!114 &2725430997125907974
 MonoBehaviour:
@@ -584,6 +1154,59 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &5000736410139041429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Explosion3D/EffectsVolume
+  m_EditorClassIdentifier: 
+  Name: EffectsVolume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 325910103
+    data2: 1523638070
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &5239162362088830652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/StopEngine
+  m_EditorClassIdentifier: 
+  Path: event:/Player/StopEngine
+  Guid:
+    Data1: -1595376612
+    Data2: 1089930434
+    Data3: 409092269
+    Data4: -1619891009
+  Banks:
+  - {fileID: 2563684117429943378}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -5677138435629369824}
+  - {fileID: -4651283982951001478}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3700
 --- !u!114 &5266469198746420125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +1235,90 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &5270614469613103890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/TransmissionChanger
+  m_EditorClassIdentifier: 
+  Path: event:/Player/TransmissionChanger
+  Guid:
+    Data1: -1558495683
+    Data2: 1266314798
+    Data3: -597426048
+    Data4: 1310153721
+  Banks:
+  - {fileID: 2563684117429943378}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -7343267223035234332}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 220
+--- !u!114 &6457506520249214909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Effects/Explosion
+  m_EditorClassIdentifier: 
+  Path: event:/Effects/Explosion
+  Guid:
+    Data1: -1208845517
+    Data2: 1154901484
+    Data3: 1791870341
+    Data4: -1484263745
+  Banks:
+  - {fileID: 2563684117429943378}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -5155179973997689883}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3040
+--- !u!114 &6502083194485852453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/StopForceEngine
+  m_EditorClassIdentifier: 
+  Path: event:/Player/StopForceEngine
+  Guid:
+    Data1: 1357205253
+    Data2: 1211293986
+    Data3: 401120957
+    Data4: -833494004
+  Banks:
+  - {fileID: 2563684117429943378}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -3927679094497060011}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3022
 --- !u!114 &6944131001527461346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,3 +1371,131 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &7262064289494044030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Effects/Explosion3D
+  m_EditorClassIdentifier: 
+  Path: event:/Effects/Explosion3D
+  Guid:
+    Data1: 1329523117
+    Data2: 1253224595
+    Data3: 1682729901
+    Data4: 1954088478
+  Banks:
+  - {fileID: 2563684117429943378}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 5000736410139041429}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2050
+--- !u!114 &7379926705969067575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/StartEngine/EffectsVolume
+  m_EditorClassIdentifier: 
+  Name: EffectsVolume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 325910103
+    data2: 1523638070
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &7527978240698537714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/TankEngineForce
+  m_EditorClassIdentifier: 
+  Name: TankEngineForce
+  StudioPath: parameter:/TankEngineForce
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 936692302
+    data2: 3549676080
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &7604623828262278323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/TankShoot
+  m_EditorClassIdentifier: 
+  Path: event:/Player/TankShoot
+  Guid:
+    Data1: -640375520
+    Data2: 1151279827
+    Data3: 2053063081
+    Data4: -490918116
+  Banks:
+  - {fileID: 2563684117429943378}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 2539049569360487728}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1001
+--- !u!114 &8294470903116007498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Force1/EffectsVolume
+  m_EditorClassIdentifier: 
+  Name: EffectsVolume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 325910103
+    data2: 1523638070
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1

@@ -11,7 +11,7 @@ namespace Zenject
             _installMethod = installMethod;
         }
 
-        public override void InstallBindings()
+        public override void BaseSceneInstaller()
         {
             _installMethod(Container);
         }

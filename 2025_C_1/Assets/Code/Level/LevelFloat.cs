@@ -8,9 +8,9 @@ namespace Code.Level
         
         private void Start()
         {
-            _playerTag = FindObjectOfType<PlayerTag>();
+            // _playerTag = FindObjectOfType<PlayerTag>();
             
-            _playerTag.gameObject.transform.position = new Vector3(0, 0.5f, 0);
+            // _playerTag.gameObject.transform.position = new Vector3(0, 0.5f, 0);
         }
         
         

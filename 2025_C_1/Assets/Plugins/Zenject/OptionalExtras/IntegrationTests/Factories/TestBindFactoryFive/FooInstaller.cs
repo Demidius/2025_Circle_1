@@ -18,7 +18,7 @@ namespace Zenject.Tests.Factories.BindFactoryFive
             _param5 = p5;
         }
 
-        public override void InstallBindings()
+        public override void BaseSceneInstaller()
         {
             Container.BindInstance(_param1).WhenInjectedInto<Foo>();
             Container.BindInstance(_param2).WhenInjectedInto<Foo>();

@@ -6,7 +6,7 @@ namespace Zenject.Tests.Installers.Installers
 
     public class FooInstaller : Installer<FooInstaller>
     {
-        public override void InstallBindings()
+        public override void BaseSceneInstaller()
         {
             Container.Bind<Foo>().AsSingle().NonLazy();
         }

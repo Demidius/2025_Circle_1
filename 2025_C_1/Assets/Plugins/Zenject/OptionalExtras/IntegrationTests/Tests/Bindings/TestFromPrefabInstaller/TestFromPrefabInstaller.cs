@@ -118,7 +118,7 @@ namespace Zenject.Tests.Bindings.FromPrefabInstaller
 
         public class FooInstaller : Installer<FooInstaller>
         {
-            public override void InstallBindings()
+            public override void BaseSceneInstaller()
             {
                 Container.Bind<Qux>().AsSingle().WithArguments("asdf");
             }

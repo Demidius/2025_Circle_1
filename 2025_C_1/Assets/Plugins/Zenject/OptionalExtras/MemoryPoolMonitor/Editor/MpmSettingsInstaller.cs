@@ -10,7 +10,7 @@ namespace Zenject.MemoryPoolMonitor
         public MpmView.Settings MpmView;
         public MpmView.Settings MpmViewDark;
 
-        public override void InstallBindings()
+        public override void BaseSceneInstaller()
         {
             Container.BindInstance(EditorGUIUtility.isProSkin ? MpmViewDark : MpmView);
         }

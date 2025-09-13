@@ -27,7 +27,7 @@ namespace Zenject
             // Define this method so we expose the enabled check box
         }
 
-        public virtual void InstallBindings()
+        public virtual void BaseSceneInstaller()
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,4 @@
-using CodeBase.System.GameSystems.Input;
+using Code.System.Input;
 using CodeBase.System.GameSystems.StateMachine.Core;
 using Zenject;
 
@@ -10,7 +10,7 @@ namespace CodeBase.System.GameSystems.StateMachine.States
 
         public override void Enter()
         {
-            _inputCase.OnEscapeDown += OnMenu;
+            // _inputCase.OnEscapeDown += OnMenu;
 
             _inputCase.SwitchGameplayState(false);
         }
@@ -18,7 +18,7 @@ namespace CodeBase.System.GameSystems.StateMachine.States
         public override void Exit()
         {
             // Debug.Log("Exit");
-            _inputCase.OnEscapeDown -= OnMenu;
+            // _inputCase.OnEscapeDown -= OnMenu;
         }
 
         private void OnMenu()

@@ -3,23 +3,24 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Target
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
   - 
   - 
   - 
+  - Player
+  - Target
+  - Light
   - 
-  - 
-  - 
-  - 
-  - 
+  - UI
   - 
   - 
   - 
@@ -40,6 +41,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ui
+    uniqueID: 2737114727
     locked: 0
   m_RenderingLayers:
   - Default

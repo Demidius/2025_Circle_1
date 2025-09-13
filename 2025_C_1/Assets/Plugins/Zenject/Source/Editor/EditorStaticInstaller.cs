@@ -13,7 +13,7 @@ namespace Zenject
     //         Install();
     //     }
     //
-    //     public override void InstallBindings()
+    //     public override void BaseSceneInstaller()
     //     {
     //         Container.BindInstance("hello world");
     //     }
@@ -24,7 +24,7 @@ namespace Zenject
     {
         public static void Install()
         {
-            StaticContext.Container.Instantiate<T>().InstallBindings();
+            StaticContext.Container.Instantiate<T>().BaseSceneInstaller();
         }
     }
 }

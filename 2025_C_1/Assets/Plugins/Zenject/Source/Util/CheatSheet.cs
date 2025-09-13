@@ -8,7 +8,7 @@ namespace Zenject
 {
     public class CheatSheet : Installer<CheatSheet>
     {
-        public override void InstallBindings()
+        public override void BaseSceneInstaller()
         {
             // Create a new instance of Foo for every class that asks for it
             Container.Bind<Foo>().AsTransient();
@@ -311,7 +311,7 @@ namespace Zenject
             {
             }
 
-            public override void InstallBindings()
+            public override void BaseSceneInstaller()
             {
             }
         }
@@ -322,7 +322,7 @@ namespace Zenject
             {
             }
 
-            public override void InstallBindings()
+            public override void BaseSceneInstaller()
             {
             }
         }
@@ -331,7 +331,7 @@ namespace Zenject
         {
             ///////////// Installing Other Installers
 
-            // Immediately call InstallBindings() on FooInstaller
+            // Immediately call BaseSceneInstaller() on FooInstaller
             FooInstaller.Install(Container);
 
             // Before calling FooInstaller, configure a property of it

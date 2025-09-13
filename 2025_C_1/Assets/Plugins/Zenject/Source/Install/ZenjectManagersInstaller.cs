@@ -11,7 +11,7 @@ namespace Zenject
     // You might also want to use this installer in a ZenjectUnitTestFixture
     public class ZenjectManagersInstaller : Installer<ZenjectManagersInstaller>
     {
-        public override void InstallBindings()
+        public override void BaseSceneInstaller()
         {
             Container.Bind(typeof(TickableManager), typeof(InitializableManager), typeof(DisposableManager))
                 .ToSelf().AsSingle().CopyIntoAllSubContainers();

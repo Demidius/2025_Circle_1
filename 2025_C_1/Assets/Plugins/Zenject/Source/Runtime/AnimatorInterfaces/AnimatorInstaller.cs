@@ -11,7 +11,7 @@ namespace Zenject
             _animator = animator;
         }
 
-        public override void InstallBindings()
+        public override void BaseSceneInstaller()
         {
             Container.Bind<AnimatorIkHandlerManager>().FromNewComponentOn(_animator.gameObject);
             Container.Bind<AnimatorIkHandlerManager>().FromNewComponentOn(_animator.gameObject);

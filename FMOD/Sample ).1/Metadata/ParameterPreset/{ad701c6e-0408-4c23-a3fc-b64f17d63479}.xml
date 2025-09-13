@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{ad701c6e-0408-4c23-a3fc-b64f17d63479}">
+		<property name="name">
+			<value>TankEngineForce</value>
+		</property>
+		<relationship name="folder">
+			<destination>{343dcfe4-82d2-4d8d-9584-05d8297ae6a8}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{7468498a-44f9-4374-873a-c3e91fd054a3}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{7468498a-44f9-4374-873a-c3e91fd054a3}">
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>
